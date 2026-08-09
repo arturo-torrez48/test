@@ -1,0 +1,1017 @@
+/**
+ * @name Windows 98 Messenger
+ * @author Arturo
+ * @description Windows 95/98 + Windows Messenger inspired Discord theme
+ * @version 1.5.0
+ */
+
+/* =========================================================
+   WINDOWS 9X / MESSENGER
+   V1.5
+   ========================================================= */
+
+:root {
+    /* ---- Classic Windows palette ---- */
+
+    --w98-gray: #c0c0c0;
+    --w98-gray-dark: #808080;
+    --w98-gray-darker: #404040;
+    --w98-gray-light: #dfdfdf;
+
+    --w98-white: #ffffff;
+    --w98-black: #000000;
+
+    --w98-blue: #000080;
+    --w98-blue-active: #0000a8;
+
+    --w98-text: #000000;
+    --w98-disabled: #808080;
+
+    --w98-tooltip: #ffffe1;
+
+    /* ---- Classic borders ---- */
+
+    --w98-raised:
+        inset 1px 1px 0 #ffffff,
+        inset -1px -1px 0 #808080;
+
+    --w98-raised-heavy:
+        inset 2px 2px 0 #ffffff,
+        inset -2px -2px 0 #808080;
+
+    --w98-sunken:
+        inset 1px 1px 0 #808080,
+        inset -1px -1px 0 #ffffff;
+
+    --w98-sunken-heavy:
+        inset 2px 2px 0 #808080,
+        inset -2px -2px 0 #ffffff;
+
+    /* ---- Typography ---- */
+
+    --w98-font:
+        "MS Sans Serif",
+        "Microsoft Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html,
+body {
+    background: var(--w98-gray) !important;
+    color: var(--w98-text) !important;
+}
+
+* {
+    font-family: var(--w98-font) !important;
+    border-radius: 0 !important;
+}
+
+/* Discord modern effects */
+
+[class*="backdrop"],
+[class*="backdrop_"] {
+    backdrop-filter: none !important;
+}
+
+[class*="layerContainer"] {
+    backdrop-filter: none !important;
+}
+
+/* Remove excessive modern shadows */
+
+[class*="appMount"],
+[class*="app"] {
+    box-shadow: none !important;
+}
+
+/* =========================================================
+   MAIN APPLICATION
+   ========================================================= */
+
+[class*="appMount"] {
+    background: var(--w98-gray) !important;
+}
+
+[class*="bg"] {
+    background: var(--w98-gray) !important;
+}
+
+/* =========================================================
+   SERVER BAR
+   ========================================================= */
+
+[class*="guilds"] {
+    background: var(--w98-gray) !important;
+
+    border-right: 2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset -1px 0 #ffffff !important;
+}
+
+[class*="guilds"] [class*="scroller"] {
+    background: var(--w98-gray) !important;
+}
+
+/* Server list items */
+
+[class*="guilds"] [class*="listItem"] {
+    margin-bottom: 4px !important;
+}
+
+/* Server icon */
+
+[class*="guilds"] [class*="wrapper"] {
+    border-radius: 0 !important;
+}
+
+/* Server hover */
+
+[class*="guilds"] [class*="listItem"]:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+/* Selected server */
+
+[class*="guilds"] [class*="selected"] {
+    background: var(--w98-blue) !important;
+}
+
+[class*="guilds"] [class*="selected"] * {
+    color: white !important;
+}
+
+/* Home button */
+
+[class*="guilds"] [aria-label*="Home"],
+[class*="guilds"] [aria-label*="home"] {
+    background: var(--w98-gray) !important;
+
+    box-shadow: var(--w98-raised) !important;
+}
+
+[class*="guilds"] [aria-label*="Home"]:hover,
+[class*="guilds"] [aria-label*="home"]:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+/* =========================================================
+   LEFT SIDEBAR
+   ========================================================= */
+
+[class*="sidebar"] {
+    background: var(--w98-gray) !important;
+
+    border-right:
+        2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset -1px 0 #ffffff !important;
+}
+
+/* =========================================================
+   SIDEBAR HEADER
+   ========================================================= */
+
+[class*="sidebar"] [class*="header"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+
+    min-height: 34px !important;
+
+    box-shadow:
+        inset 1px 1px #ffffff33,
+        inset -1px -1px #000000 !important;
+}
+
+[class*="sidebar"] [class*="header"] * {
+    color: white !important;
+}
+
+/* =========================================================
+   SEARCH / "FIND OR START A CONVERSATION"
+   ========================================================= */
+
+[class*="sidebar"] input {
+    background: white !important;
+    color: black !important;
+
+    border: 1px solid black !important;
+
+    box-shadow:
+        var(--w98-sunken-heavy) !important;
+
+    padding: 4px 6px !important;
+}
+
+[class*="sidebar"] input::placeholder {
+    color: #404040 !important;
+    opacity: 1 !important;
+}
+
+/* Search container */
+
+[class*="sidebar"] [class*="searchBar"] {
+    background: var(--w98-gray) !important;
+}
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
+[class*="sidebar"] [class*="item"] {
+    color: #000000 !important;
+}
+
+[class*="sidebar"] [class*="item"]:hover {
+    background: var(--w98-gray-light) !important;
+    color: #000000 !important;
+}
+
+/* Selected navigation item */
+
+[class*="sidebar"] [class*="selected"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+
+    box-shadow:
+        inset 1px 1px #000000,
+        inset -1px -1px #ffffff !important;
+}
+
+[class*="sidebar"] [class*="selected"] * {
+    color: white !important;
+}
+
+/* =========================================================
+   DIRECT MESSAGE LIST
+   ========================================================= */
+
+[class*="privateChannels"] {
+    background: var(--w98-gray) !important;
+}
+
+/* DM rows */
+
+[class*="privateChannels"] [class*="channel"] {
+    color: #000000 !important;
+
+    margin: 1px 2px !important;
+}
+
+[class*="privateChannels"] [class*="channel"]:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+/* Selected DM */
+
+[class*="privateChannels"] [class*="selected"] {
+    background: var(--w98-blue) !important;
+
+    box-shadow:
+        inset 1px 1px #000000,
+        inset -1px -1px #ffffff !important;
+}
+
+[class*="privateChannels"] [class*="selected"] * {
+    color: white !important;
+}
+
+/* DM names */
+
+[class*="privateChannels"] [class*="name"] {
+    color: #000000 !important;
+}
+
+[class*="privateChannels"] [class*="selected"] [class*="name"] {
+    color: white !important;
+}
+
+/* =========================================================
+   FRIENDS / PEOPLE PAGE
+   ========================================================= */
+
+[class*="peopleColumn"] {
+    background: white !important;
+
+    border-left:
+        2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset 1px 0 #ffffff !important;
+}
+
+/* Main friends area */
+
+[class*="peopleList"] {
+    background: white !important;
+}
+
+/* Friends header */
+
+[class*="peopleColumn"] [class*="header"] {
+    background: var(--w98-gray) !important;
+    color: black !important;
+
+    border-bottom:
+        2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset 0 -1px #ffffff !important;
+}
+
+[class*="peopleColumn"] [class*="header"] * {
+    color: black !important;
+}
+
+/* Friends tabs */
+
+[class*="peopleColumn"] [class*="tabBar"] {
+    background: var(--w98-gray) !important;
+
+    padding: 3px !important;
+}
+
+[class*="peopleColumn"] [class*="tabBar"] [class*="item"] {
+    background: var(--w98-gray) !important;
+    color: black !important;
+
+    padding: 4px 9px !important;
+
+    box-shadow:
+        var(--w98-raised) !important;
+}
+
+/* Active tab */
+
+[class*="peopleColumn"] [class*="tabBar"] [class*="selected"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+
+    box-shadow:
+        var(--w98-sunken) !important;
+}
+
+[class*="peopleColumn"] [class*="tabBar"] [class*="selected"] * {
+    color: white !important;
+}
+
+/* Add Friend */
+
+[class*="peopleColumn"] button {
+    background: var(--w98-gray) !important;
+    color: black !important;
+
+    box-shadow:
+        var(--w98-raised-heavy) !important;
+
+    border: none !important;
+}
+
+[class*="peopleColumn"] button:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+[class*="peopleColumn"] button:active {
+    box-shadow:
+        var(--w98-sunken-heavy) !important;
+}
+
+/* =========================================================
+   FRIEND LIST
+   ========================================================= */
+
+[class*="peopleListItem"] {
+    background: white !important;
+
+    border-bottom:
+        1px solid #c0c0c0 !important;
+
+    padding: 7px !important;
+}
+
+[class*="peopleListItem"]:hover {
+    background: #e8e8e8 !important;
+}
+
+/* Friend name */
+
+[class*="peopleListItem"] [class*="username"] {
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+
+/* Friend status */
+
+[class*="peopleListItem"] [class*="activity"] {
+    color: #404040 !important;
+}
+
+/* =========================================================
+   FRIEND ACTION BUTTONS
+   ========================================================= */
+
+[class*="peopleListItem"] button {
+    background: var(--w98-gray) !important;
+    color: black !important;
+
+    min-width: 32px !important;
+    min-height: 28px !important;
+
+    box-shadow:
+        var(--w98-raised) !important;
+
+    border: none !important;
+}
+
+[class*="peopleListItem"] button:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+[class*="peopleListItem"] button:active {
+    box-shadow:
+        var(--w98-sunken) !important;
+}
+
+/* Icons inside buttons */
+
+[class*="peopleListItem"] button svg {
+    color: #000000 !important;
+    fill: currentColor !important;
+    opacity: 1 !important;
+}
+
+/* =========================================================
+   MAIN CHAT
+   ========================================================= */
+
+[class*="chat"] {
+    background: white !important;
+}
+
+/* Chat header */
+
+[class*="chat"] [class*="title"] {
+    background: var(--w98-gray) !important;
+
+    color: black !important;
+
+    border-bottom:
+        2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset 0 -1px #ffffff !important;
+}
+
+[class*="chat"] [class*="title"] * {
+    color: black !important;
+}
+
+/* =========================================================
+   MESSAGE AREA
+   ========================================================= */
+
+[class*="messagesWrapper"] {
+    background: white !important;
+}
+
+[class*="scroller"] {
+    background: inherit !important;
+}
+
+/* Messages */
+
+[class*="message"] {
+    background: transparent !important;
+}
+
+/* Message hover */
+
+[class*="message"]:hover {
+    background: #eeeeee !important;
+}
+
+/* Username */
+
+[class*="message"] [class*="username"] {
+    color: var(--w98-blue) !important;
+    font-weight: bold !important;
+}
+
+/* Message text */
+
+[class*="message"] [class*="messageContent"] {
+    color: black !important;
+}
+
+/* Timestamp */
+
+[class*="message"] [class*="timestamp"] {
+    color: #606060 !important;
+}
+
+/* =========================================================
+   CHAT INPUT
+   ========================================================= */
+
+[class*="channelTextArea"] {
+    background: var(--w98-gray) !important;
+
+    margin: 4px !important;
+
+    border: none !important;
+
+    box-shadow:
+        var(--w98-raised-heavy) !important;
+}
+
+/* Actual text box */
+
+[class*="scrollableContainer"] {
+    background: white !important;
+
+    border: 1px solid black !important;
+
+    box-shadow:
+        var(--w98-sunken) !important;
+}
+
+/* Input text */
+
+[class*="scrollableContainer"] textarea {
+    color: black !important;
+}
+
+/* Placeholder */
+
+[class*="scrollableContainer"] textarea::placeholder {
+    color: #606060 !important;
+}
+
+/* =========================================================
+   RIGHT MEMBER LIST
+   ========================================================= */
+
+[class*="membersWrap"] {
+    background: var(--w98-gray) !important;
+
+    border-left:
+        2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset 1px 0 #ffffff !important;
+}
+
+[class*="members"] {
+    background: var(--w98-gray) !important;
+}
+
+/* Member */
+
+[class*="member"] {
+    background: transparent !important;
+    color: black !important;
+}
+
+[class*="member"]:hover {
+    background: var(--w98-blue) !important;
+}
+
+[class*="member"]:hover * {
+    color: white !important;
+}
+
+/* Member names */
+
+[class*="member"] [class*="username"] {
+    color: black !important;
+}
+
+[class*="member"]:hover [class*="username"] {
+    color: white !important;
+}
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+button {
+    font-family: var(--w98-font) !important;
+
+    background: var(--w98-gray) !important;
+    color: black !important;
+
+    border: none !important;
+
+    box-shadow:
+        var(--w98-raised) !important;
+}
+
+/* Hover */
+
+button:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+/* Active */
+
+button:active {
+    box-shadow:
+        var(--w98-sunken) !important;
+}
+
+/* Disabled */
+
+button:disabled {
+    color: var(--w98-disabled) !important;
+
+    text-shadow:
+        1px 1px white !important;
+}
+
+/* =========================================================
+   ICON CONTRAST
+   ========================================================= */
+
+/* General Discord icons */
+
+svg {
+    opacity: 1 !important;
+}
+
+/* Dark icons against gray */
+
+[class*="sidebar"] svg,
+[class*="peopleColumn"] svg,
+[class*="membersWrap"] svg {
+    color: #000000 !important;
+    fill: currentColor !important;
+}
+
+/* White icons when selected */
+
+[class*="selected"] svg {
+    color: white !important;
+    fill: currentColor !important;
+}
+
+/* =========================================================
+   AVATARS
+   ========================================================= */
+
+/*
+ * Keep avatars recognizable instead of destroying them.
+ * Only remove Discord's excessive rounding.
+ */
+
+[class*="avatar"] {
+    border-radius: 2px !important;
+}
+
+/* Avatar status indicator */
+
+[class*="status"] {
+    border-radius: 50% !important;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+input {
+    font-family: var(--w98-font) !important;
+
+    background: white !important;
+    color: black !important;
+
+    border: 1px solid black !important;
+
+    box-shadow:
+        var(--w98-sunken) !important;
+}
+
+input::placeholder {
+    color: #606060 !important;
+    opacity: 1 !important;
+}
+
+/* Search icon */
+
+[class*="search"] svg {
+    color: #000000 !important;
+    opacity: 1 !important;
+}
+
+/* =========================================================
+   CONTEXT MENUS
+   ========================================================= */
+
+[class*="menu"] {
+    background: var(--w98-gray) !important;
+
+    border: none !important;
+
+    box-shadow:
+        2px 2px 0 #000000,
+        inset 1px 1px #ffffff,
+        inset -1px -1px #808080 !important;
+
+    padding: 2px !important;
+}
+
+/* Menu items */
+
+[class*="menu"] [role="menuitem"] {
+    color: black !important;
+
+    padding: 5px 8px !important;
+}
+
+/* Menu hover */
+
+[class*="menu"] [role="menuitem"]:hover {
+    background: var(--w98-blue) !important;
+    color: white !important;
+}
+
+[class*="menu"] [role="menuitem"]:hover * {
+    color: white !important;
+}
+
+/* =========================================================
+   POPOVERS
+   ========================================================= */
+
+[class*="popout"] {
+    background: var(--w98-gray) !important;
+
+    border: none !important;
+
+    box-shadow:
+        2px 2px 0 black,
+        inset 1px 1px white,
+        inset -1px -1px #808080 !important;
+}
+
+/* =========================================================
+   MODALS
+   ========================================================= */
+
+[class*="modal"] {
+    background: var(--w98-gray) !important;
+
+    border: none !important;
+
+    box-shadow:
+        3px 3px 0 #000000,
+        inset 2px 2px #ffffff,
+        inset -2px -2px #808080 !important;
+}
+
+/* Modal header */
+
+[class*="modal"] [class*="header"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+}
+
+[class*="modal"] [class*="header"] * {
+    color: white !important;
+}
+
+/* Modal body */
+
+[class*="modal"] [class*="content"] {
+    background: var(--w98-gray) !important;
+    color: black !important;
+}
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+[class*="tooltip"] {
+    background: var(--w98-tooltip) !important;
+
+    color: black !important;
+
+    border: 1px solid black !important;
+
+    box-shadow:
+        2px 2px 0 black !important;
+}
+
+[class*="tooltip"] * {
+    color: black !important;
+}
+
+/* =========================================================
+   TOASTS / NOTIFICATIONS
+   ========================================================= */
+
+[class*="toast"] {
+    background: var(--w98-gray) !important;
+
+    color: black !important;
+
+    border: none !important;
+
+    box-shadow:
+        2px 2px black,
+        inset 1px 1px white,
+        inset -1px -1px #808080 !important;
+}
+
+/* =========================================================
+   SCROLLBARS — WINDOWS 9X
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--w98-gray) !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--w98-gray) !important;
+
+    border: none !important;
+
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #808080 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+::-webkit-scrollbar-button {
+    display: block !important;
+
+    width: 16px !important;
+    height: 16px !important;
+
+    background: var(--w98-gray) !important;
+
+    box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #808080 !important;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+    background: var(--w98-blue) !important;
+    color: white !important;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    color: #0000ee !important;
+}
+
+a:hover {
+    color: #000080 !important;
+    text-decoration: underline !important;
+}
+
+/* =========================================================
+   STATUS COLORS
+   ========================================================= */
+
+/* Keep Discord status colors visible */
+
+[class*="online"] {
+    color: #008000 !important;
+}
+
+[class*="idle"] {
+    color: #808000 !important;
+}
+
+[class*="dnd"] {
+    color: #800000 !important;
+}
+
+/* =========================================================
+   DISCORD BADGES
+   ========================================================= */
+
+[class*="numberBadge"] {
+    border-radius: 0 !important;
+
+    background: #800000 !important;
+    color: white !important;
+
+    box-shadow:
+        1px 1px 0 #000000 !important;
+}
+
+/* =========================================================
+   NEW / UNREAD
+   ========================================================= */
+
+[class*="newMessagesBar"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+
+    border: none !important;
+
+    box-shadow:
+        var(--w98-raised) !important;
+}
+
+[class*="unread"] {
+    background: #000080 !important;
+}
+
+/* =========================================================
+   VOICE / USER PANEL
+   ========================================================= */
+
+[class*="panels"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-gray-dark) !important;
+
+    box-shadow:
+        inset 0 1px white !important;
+}
+
+[class*="panels"] button {
+    background: var(--w98-gray) !important;
+    color: black !important;
+}
+
+/* =========================================================
+   REACTIONS
+   ========================================================= */
+
+[class*="reaction"] {
+    background: var(--w98-gray) !important;
+
+    border: none !important;
+
+    box-shadow:
+        var(--w98-raised) !important;
+}
+
+[class*="reaction"]:hover {
+    background: var(--w98-gray-light) !important;
+}
+
+[class*="reactionMe"] {
+    background: #d0d0ff !important;
+
+    box-shadow:
+        var(--w98-sunken) !important;
+}
+
+/* =========================================================
+   DIVIDERS
+   ========================================================= */
+
+hr {
+    border: none !important;
+
+    border-top:
+        1px solid #808080 !important;
+
+    border-bottom:
+        1px solid #ffffff !important;
+}
+
+/* =========================================================
+   HIDE MODERN DECORATIVE EFFECTS
+   ========================================================= */
+
+[class*="shine"],
+[class*="gradient"],
+[class*="blur"] {
+    filter: none !important;
+}
+
+/* =========================================================
+   FINAL WINDOWS 98 OVERRIDE
+   ========================================================= */
+
+[class*="container"],
+[class*="wrapper"] {
+    border-radius: 0 !important;
+}
