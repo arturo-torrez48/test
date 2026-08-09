@@ -1,422 +1,1300 @@
 /**
+ * @name Windows 98 Discord
+ * @author Arthur
+ * @description Discord redesigned to resemble Windows 98.
+ * @version 0.2.0
+ */
 
-* @name Windows 98 Discord
-* @author Arthur
-* @description Discord redesigned as a Windows 98 application.
-* @version 0.1.0
-  */
+/* ============================================================
+   WINDOWS 98 DISCORD
+   ------------------------------------------------------------
+   Design philosophy:
+   - Do NOT style generic Discord containers.
+   - Use Discord's theme variables wherever possible.
+   - Use semantic class fragments only for structural elements.
+   - Win98 borders are reserved for actual controls.
+   ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500&display=swap");
 
-/* =========================================================
-WINDOWS 98 PALETTE
-========================================================= */
+/* ============================================================
+   WINDOWS 98 PALETTE / DISCORD OVERRIDE
+   ============================================================ */
 
 :root {
---win98-gray: #c0c0c0;
---win98-light: #ffffff;
---win98-mid: #dfdfdf;
---win98-shadow: #808080;
---win98-dark: #000000;
+    --w98-gray: #c0c0c0;
+    --w98-light: #ffffff;
+    --w98-light-gray: #dfdfdf;
+    --w98-shadow: #808080;
+    --w98-dark: #404040;
+    --w98-black: #000000;
 
-```
---win98-blue: #000080;
---win98-blue-active: #0000aa;
+    --w98-blue: #000080;
+    --w98-blue-active: #0000aa;
 
---win98-teal: #008080;
+    --w98-teal: #008080;
 
---win98-text: #000000;
---win98-disabled: #808080;
+    --w98-yellow: #ffff00;
+    --w98-red: #800000;
 
---win98-white: #ffffff;
-```
-
+    --w98-font:
+        "MS Sans Serif",
+        "Microsoft Sans Serif",
+        Tahoma,
+        Arial,
+        sans-serif;
 }
 
-/* =========================================================
-GLOBAL
-========================================================= */
+
+/* ============================================================
+   DISCORD PRIMARY PALETTE
+   ============================================================ */
+
+.theme-dark,
+.theme-darker,
+.theme-amoled,
+.theme-light {
+
+    /* Main surfaces */
+    --background-primary: #c0c0c0;
+    --background-secondary: #c0c0c0;
+    --background-secondary-alt: #dfdfdf;
+    --background-tertiary: #c0c0c0;
+
+    --background-floating: #c0c0c0;
+    --background-mobile-primary: #c0c0c0;
+    --background-mobile-secondary: #c0c0c0;
+
+    /* Interaction */
+    --background-accent: #000080;
+    --background-modifier-hover: #dfdfdf;
+    --background-modifier-active: #808080;
+    --background-modifier-selected: #000080;
+    --background-modifier-accent: #808080;
+
+    /* Messages */
+    --background-message-hover: #dfdfdf;
+    --background-mentioned: #ffffcc;
+    --background-mentioned-hover: #ffff99;
+
+    /* Text */
+    --text-normal: #000000;
+    --text-muted: #404040;
+    --text-link: #000080;
+
+    --header-primary: #000000;
+    --header-secondary: #404040;
+
+    --channels-default: #404040;
+
+    /* Interactive */
+    --interactive-normal: #000000;
+    --interactive-hover: #000080;
+    --interactive-active: #000080;
+    --interactive-muted: #808080;
+
+    /* Chat */
+    --channeltextarea-background: #ffffff;
+    --chat-background: #c0c0c0;
+    --chat-border: #808080;
+
+    /* Borders */
+    --border-faint: #808080;
+    --border-subtle: #808080;
+
+    /* Font */
+    --font-primary: var(--w98-font);
+    --font-display: var(--w98-font);
+    --font-headline: var(--w98-font);
+}
+
+
+/* ============================================================
+   02. GLOBAL RESET
+   ============================================================ */
+
+/*
+ * Discord uses rounded corners heavily.
+ * Windows 98 does not.
+ */
 
 * {
-  border-radius: 0 !important;
-  box-shadow: none;
-  }
+    border-radius: 0 !important;
+}
+
+
+/*
+ * Do NOT globally remove shadows.
+ * Some Discord components rely on them for positioning.
+ */
 
 body {
-font-family:
-"MS Sans Serif",
-"Microsoft Sans Serif",
-Tahoma,
-Arial,
-sans-serif !important;
-
-```
-background: var(--win98-teal) !important;
-color: var(--win98-text) !important;
-```
-
+    font-family: var(--w98-font) !important;
+    color: var(--w98-black);
 }
 
-/* =========================================================
-DISCORD APP
-========================================================= */
 
-.appMount__51fd7,
-.app__160d8 {
-background: var(--win98-teal) !important;
+/* ============================================================
+   03. DISCORD COLOR SYSTEM
+   ============================================================ */
+
+/*
+ * This is the most important part.
+ *
+ * Instead of painting every Discord element individually,
+ * we change Discord's own palette.
+ */
+
+.theme-dark,
+.theme-darker,
+.theme-light,
+.theme-amoled {
+
+    --background-primary: var(--w98-gray);
+    --background-secondary: var(--w98-gray);
+    --background-secondary-alt: var(--w98-light-gray);
+    --background-tertiary: var(--w98-gray);
+
+    --background-floating: var(--w98-gray);
+    --background-accent: var(--w98-blue);
+
+    --channeltextarea-background: var(--w98-light);
+
+    --background-modifier-hover: rgba(0, 0, 0, 0.08);
+    --background-modifier-active: rgba(0, 0, 0, 0.15);
+    --background-modifier-selected: var(--w98-blue);
+
+    --background-modifier-accent: var(--w98-shadow);
+
+    --text-normal: var(--w98-black);
+    --text-muted: #404040;
+    --text-link: #000080;
+    --text-positive: #008000;
+    --text-warning: #808000;
+    --text-danger: #800000;
+
+    --interactive-normal: var(--w98-black);
+    --interactive-hover: var(--w98-blue);
+    --interactive-active: var(--w98-blue);
+    --interactive-muted: var(--w98-shadow);
+
+    --header-primary: var(--w98-black);
+    --header-secondary: #404040;
+
+    --channels-default: #404040;
+
+    --channel-icon: #404040;
+
+    --white-500: #ffffff;
+    --black-500: #000000;
 }
 
-/* Main Discord surface */
 
-.bg__960e4 {
-background: var(--win98-gray) !important;
+/* ============================================================
+   04. MAIN APPLICATION
+   ============================================================ */
+
+/*
+ * The area outside Discord's main surfaces becomes the
+ * classic Windows 98 desktop teal.
+ */
+
+#app-mount {
+    background: var(--w98-teal) !important;
 }
 
-/* =========================================================
-WINDOWS 98 RAISED SURFACE
-========================================================= */
 
-[class*="container"],
-[class*="sidebar"],
-[class*="content"],
-[class*="chat"] {
-scrollbar-color:
-var(--win98-gray)
-var(--win98-gray) !important;
+/*
+ * Main Discord background.
+ *
+ * Important:
+ * We only target known Discord background classes.
+ */
+
+[class^="bg_"],
+[class*=" bg_"] {
+    background: var(--w98-gray) !important;
 }
 
-/* =========================================================
-CHANNEL SIDEBAR
-========================================================= */
 
-[class*="sidebar"] {
-background: var(--win98-gray) !important;
+/* ============================================================
+   05. SERVER BAR
+   ============================================================ */
 
-```
-border-top:
-    2px solid var(--win98-light) !important;
+/*
+ * This is one of the places where the teal belongs.
+ *
+ * It should look like the desktop behind a Windows 98 window,
+ * not like a modern Discord sidebar.
+ */
 
-border-left:
-    2px solid var(--win98-light) !important;
-
-border-right:
-    2px solid var(--win98-shadow) !important;
-
-border-bottom:
-    2px solid var(--win98-shadow) !important;
-```
-
+[class^="guilds_"],
+[class*=" guilds_"] {
+    background: var(--w98-teal) !important;
 }
 
-/* =========================================================
-CHANNEL LIST
-========================================================= */
 
-[class*="containerDefault"] {
-color: var(--win98-text) !important;
+/*
+ * Server list itself stays transparent so the teal remains
+ * visible.
+ */
+
+[class^="scroller_"],
+[class*=" scroller_"] {
+    background: transparent !important;
 }
 
-[class*="containerDefault"]:hover {
-background: var(--win98-mid) !important;
+
+/*
+ * Do NOT destroy Discord's avatar geometry.
+ * Only remove rounded server icons.
+ */
+
+[class^="blobContainer_"] {
+    border-radius: 0 !important;
 }
 
-[class*="modeSelected"] {
-background: var(--win98-blue) !important;
-color: white !important;
+
+/* Server icon */
+
+[class^="childWrapper_"],
+[class*=" childWrapper_"] {
+    border-radius: 0 !important;
 }
 
-/* Channel text */
 
-[class*="name__"] {
-color: var(--win98-text) !important;
+/*
+ * Selected server.
+ */
+
+[class^="wrapper_"][aria-selected="true"] {
+    border-radius: 0 !important;
 }
 
-[class*="modeSelected"] [class*="name__"] {
-color: white !important;
+
+/* ============================================================
+   06. SERVER SEPARATORS
+   ============================================================ */
+
+[class^="guildSeparator_"],
+[class*=" guildSeparator_"] {
+    background: var(--w98-light) !important;
 }
 
-/* =========================================================
-TOP BAR / TITLE BAR
-========================================================= */
 
-[class*="titleBar"] {
-background: var(--win98-blue) !important;
-color: white !important;
+/* ============================================================
+   07. CHANNEL SIDEBAR
+   ============================================================ */
+
+/*
+ * Discord's channel sidebar.
+ *
+ * This is a real "window" surface, so it gets the classic
+ * raised Win98 edge.
+ */
+
+[class^="sidebarList_"],
+[class*=" sidebarList_"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-light) !important;
+
+    border-left:
+        2px solid var(--w98-light) !important;
+
+    border-right:
+        2px solid var(--w98-shadow) !important;
 }
 
-/* =========================================================
-CHAT HEADER
-========================================================= */
 
-[class*="themed"] {
-background: var(--win98-gray) !important;
+/*
+ * The actual sidebar background.
+ */
 
-```
-border-top:
-    2px solid var(--win98-light) !important;
-
-border-bottom:
-    2px solid var(--win98-shadow) !important;
-```
-
+[class^="sidebar_"],
+[class*=" sidebar_"] {
+    background: var(--w98-gray) !important;
 }
 
-/* =========================================================
-MESSAGE AREA
-========================================================= */
 
-[class*="chatContent"] {
-background: var(--win98-gray) !important;
+/* ============================================================
+   08. SERVER HEADER
+   ============================================================ */
+
+/*
+ * The server name area becomes a Win98 title-like header.
+ */
+
+[class^="header_"][class*="header_"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+
+    border-bottom:
+        2px solid var(--w98-shadow) !important;
 }
 
-[class*="messagesWrapper"] {
-background: var(--win98-gray) !important;
+
+/*
+ * Server title text.
+ */
+
+[class^="name_"] {
+    color: inherit !important;
 }
 
-/* =========================================================
-MESSAGES
-========================================================= */
 
-[class*="message"] {
-color: var(--win98-text) !important;
+/* ============================================================
+   09. CHANNEL LIST
+   ============================================================ */
+
+/*
+ * Category headers.
+ */
+
+[class^="containerDefault_"],
+[class*=" containerDefault_"] {
+    background: transparent !important;
 }
 
-[class*="message"]:hover {
-background: var(--win98-mid) !important;
+
+/*
+ * Channel rows remain flat.
+ */
+
+[class^="wrapperDefault_"],
+[class*=" wrapperDefault_"] {
+    background: transparent !important;
 }
+
+
+/*
+ * Hover.
+ */
+
+[class^="wrapperDefault_"]:hover,
+[class*=" wrapperDefault_"]:hover {
+    background: var(--w98-light-gray) !important;
+}
+
+
+/*
+ * Selected channel.
+ */
+
+[class^="modeSelected_"],
+[class*=" modeSelected_"] {
+    background: var(--w98-blue) !important;
+}
+
+
+/*
+ * Selected channel text.
+ */
+
+[class^="modeSelected_"] [class^="name_"],
+[class*=" modeSelected_"] [class^="name_"] {
+    color: white !important;
+}
+
+
+/*
+ * Normal channel text.
+ */
+
+[class^="name_"],
+[class*=" name_"] {
+    color: var(--w98-black);
+}
+
+
+/* ============================================================
+   10. CHANNEL ICONS
+   ============================================================ */
+
+[class^="icon_"],
+[class*=" icon_"] {
+    color: #404040 !important;
+}
+
+
+/*
+ * Selected channel icons become white.
+ */
+
+[class^="modeSelected_"] [class^="icon_"],
+[class*=" modeSelected_"] [class^="icon_"] {
+    color: white !important;
+}
+
+
+/* ============================================================
+   11. MAIN CHAT
+   ============================================================ */
+
+/*
+ * Important correction:
+ *
+ * NO giant inset border around the chat.
+ *
+ * Discord's chat is simply the inside of the Win98 window.
+ */
+
+[class^="chat_"],
+[class*=" chat_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/*
+ * Chat content.
+ */
+
+[class^="chatContent_"],
+[class*=" chatContent_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/*
+ * Message scroller.
+ */
+
+[class^="messagesWrapper_"],
+[class*=" messagesWrapper_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/* ============================================================
+   12. CHAT HEADER
+   ============================================================ */
+
+[class^="title_"],
+[class*=" title_"] {
+    background: var(--w98-gray) !important;
+
+    border-bottom:
+        2px solid var(--w98-shadow) !important;
+}
+
+
+/*
+ * Header text.
+ */
+
+[class^="topic_"],
+[class*=" topic_"] {
+    color: var(--w98-black) !important;
+}
+
+
+/* ============================================================
+   13. MESSAGE LIST
+   ============================================================ */
+
+/*
+ * Messages stay completely flat.
+ */
+
+[class^="message_"],
+[class*=" message_"] {
+    background: transparent !important;
+}
+
+
+/*
+ * Hovering a message gets a subtle Windows 98 highlight.
+ */
+
+[class^="message_"]:hover,
+[class*=" message_"]:hover {
+    background: var(--w98-light-gray) !important;
+}
+
+
+/*
+ * Message text.
+ */
+
+[class^="markup_"],
+[class*=" markup_"] {
+    color: var(--w98-black) !important;
+}
+
+
+/* ============================================================
+   14. USERNAMES
+   ============================================================ */
+
+[class^="username_"],
+[class*=" username_"] {
+    color: var(--w98-blue) !important;
+}
+
+
+/* ============================================================
+   15. AVATARS
+   ============================================================ */
+
+/*
+ * Keep avatars intact.
+ *
+ * Win98 Discord should not destroy people's profile pictures.
+ */
+
+[class^="avatar_"],
+[class*=" avatar_"] {
+    border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   16. MESSAGE INPUT
+   ============================================================ */
+
+/*
+ * Discord's input area becomes a classic Win98 recessed field.
+ */
+
+[class^="channelTextArea_"],
+[class*=" channelTextArea_"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-shadow) !important;
+
+    border-left:
+        2px solid var(--w98-shadow) !important;
+
+    border-right:
+        2px solid var(--w98-light) !important;
+
+    border-bottom:
+        2px solid var(--w98-light) !important;
+}
+
+
+/*
+ * Actual editor.
+ */
+
+[class^="textArea_"],
+[class*=" textArea_"] {
+    background: white !important;
+    color: black !important;
+}
+
+
+/*
+ * Placeholder.
+ */
+
+[class^="placeholder_"],
+[class*=" placeholder_"] {
+    color: #404040 !important;
+}
+
+
+/* ============================================================
+   17. TEXT INPUTS
+   ============================================================ */
+
+input,
+textarea {
+    font-family: var(--w98-font) !important;
+}
+
+
+/*
+ * Search fields and other editable fields.
+ */
+
+input {
+    background: white !important;
+    color: black !important;
+
+    border-top:
+        2px solid var(--w98-shadow) !important;
+
+    border-left:
+        2px solid var(--w98-shadow) !important;
+
+    border-right:
+        2px solid var(--w98-light) !important;
+
+    border-bottom:
+        2px solid var(--w98-light) !important;
+}
+
+
+/* ============================================================
+   18. BUTTONS
+   ============================================================ */
+
+button {
+    font-family: var(--w98-font) !important;
+
+    border-radius: 0 !important;
+}
+
+
+/*
+ * Only Discord buttons with an actual button role.
+ */
+
+button[class] {
+    transition: none !important;
+}
+
+
+/* ============================================================
+   19. WIN98 BUTTON EFFECT
+   ============================================================ */
+
+[class^="button_"],
+[class*=" button_"] {
+    background: var(--w98-gray) !important;
+    color: var(--w98-black) !important;
+
+    border-top:
+        2px solid var(--w98-light) !important;
+
+    border-left:
+        2px solid var(--w98-light) !important;
+
+    border-right:
+        2px solid var(--w98-shadow) !important;
+
+    border-bottom:
+        2px solid var(--w98-shadow) !important;
+}
+
+
+/*
+ * Pressed button.
+ */
+
+[class^="button_"]:active,
+[class*=" button_"]:active {
+    border-top:
+        2px solid var(--w98-shadow) !important;
+
+    border-left:
+        2px solid var(--w98-shadow) !important;
+
+    border-right:
+        2px solid var(--w98-light) !important;
+
+    border-bottom:
+        2px solid var(--w98-light) !important;
+}
+
+
+/* ============================================================
+   20. MEMBER LIST
+   ============================================================ */
+
+[class^="membersWrap_"],
+[class*=" membersWrap_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+[class^="members_"],
+[class*=" members_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/*
+ * Member rows.
+ */
+
+[class^="member_"],
+[class*=" member_"] {
+    background: transparent !important;
+}
+
+
+/*
+ * Member hover.
+ */
+
+[class^="member_"]:hover,
+[class*=" member_"]:hover {
+    background: var(--w98-light-gray) !important;
+}
+
+
+/* ============================================================
+   21. USER PANEL
+   ============================================================ */
+
+[class^="panels_"],
+[class*=" panels_"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-shadow) !important;
+}
+
+
+/*
+ * User panel controls.
+ */
+
+[class^="container_"][class*="container_"] {
+    /* Intentionally left mostly untouched.
+       Discord uses many unrelated "container" classes. */
+}
+
+
+/* ============================================================
+   22. POPOVERS
+   ============================================================ */
+
+/*
+ * Menus/popouts are actual Windows 98 floating windows.
+ */
+
+[class^="menu_"],
+[class*=" menu_"],
+[class^="popout_"],
+[class*=" popout_"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-light) !important;
+
+    border-left:
+        2px solid var(--w98-light) !important;
+
+    border-right:
+        2px solid var(--w98-shadow) !important;
+
+    border-bottom:
+        2px solid var(--w98-shadow) !important;
+}
+
+
+/* ============================================================
+   23. MENU ITEMS
+   ============================================================ */
+
+[class^="item_"],
+[class*=" item_"] {
+    border-radius: 0 !important;
+}
+
+
+/*
+ * Hovered menu item = classic blue Windows selection.
+ */
+
+[class^="item_"]:hover,
+[class*=" item_"]:hover {
+    background: var(--w98-blue) !important;
+    color: white !important;
+}
+
+
+/* ============================================================
+   24. TOOLTIPS
+   ============================================================ */
+
+[class^="tooltip_"],
+[class*=" tooltip_"] {
+    background: #ffffe1 !important;
+    color: black !important;
+
+    border:
+        1px solid black !important;
+
+    border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   25. MODALS
+   ============================================================ */
+
+[class^="modal_"],
+[class*=" modal_"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-light) !important;
+
+    border-left:
+        2px solid var(--w98-light) !important;
+
+    border-right:
+        2px solid var(--w98-shadow) !important;
+
+    border-bottom:
+        2px solid var(--w98-shadow) !important;
+}
+
+
+/* ============================================================
+   26. CODE BLOCKS
+   ============================================================ */
+
+code,
+[class^="codeBlock_"],
+[class*=" codeBlock_"] {
+    background: white !important;
+    color: black !important;
+
+    border:
+        2px inset var(--w98-gray) !important;
+
+    border-radius: 0 !important;
+
+    font-family: var(--w98-mono) !important;
+}
+
+
+/* ============================================================
+   27. LINKS
+   ============================================================ */
+
+a {
+    color: var(--w98-blue) !important;
+    text-decoration: underline !important;
+}
+
+
+/* ============================================================
+   28. SCROLLBARS
+   ============================================================ */
+
+/*
+ * Windows 98 scrollbar.
+ *
+ * We deliberately keep this relatively simple because
+ * Chromium's scrollbar implementation does not expose
+ * the old Windows scrollbar arrows perfectly.
+ */
+
+::-webkit-scrollbar {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--w98-gray) !important;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-light);
+
+    border-left:
+        2px solid var(--w98-light);
+
+    border-right:
+        2px solid var(--w98-shadow);
+
+    border-bottom:
+        2px solid var(--w98-shadow);
+}
+
+
+::-webkit-scrollbar-corner {
+    background: var(--w98-gray) !important;
+}
+
+
+/* ============================================================
+   29. DIVIDERS
+   ============================================================ */
+
+[class^="divider_"],
+[class*=" divider_"] {
+    border-color: var(--w98-shadow) !important;
+}
+
+
+/* ============================================================
+   30. REMOVE MODERN ANIMATIONS
+   ============================================================ */
+
+* {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+
+/* ============================================================
+   31. FOCUS
+   ============================================================ */
+
+*:focus-visible {
+    outline:
+        1px dotted var(--w98-black) !important;
+
+    outline-offset: -2px !important;
+}
+
+
+/* ============================================================
+   32. SELECTION
+   ============================================================ */
+
+::selection {
+    background: var(--w98-blue) !important;
+    color: white !important;
+}
+
+
+/* ============================================================
+   33. DISCORD LOGO / BRAND
+   ============================================================ */
+
+[class^="wordmark_"],
+[class*=" wordmark_"] {
+    color: white !important;
+}
+
+
+/* ============================================================
+   34. VOICE / USER CONTROLS
+   ============================================================ */
+
+[class^="actionButtons_"],
+[class*=" actionButtons_"] {
+    background: transparent !important;
+}
+
+
+/*
+ * Individual voice controls.
+ */
+
+[class^="button_"] svg,
+[class*=" button_"] svg {
+    color: var(--w98-black);
+}
+
+
+/* ============================================================
+   35. UNREAD INDICATORS
+   ============================================================ */
+
+[class^="unread_"],
+[class*=" unread_"] {
+    background: var(--w98-blue) !important;
+}
+
+
+/* ============================================================
+   36. MENTION BADGES
+   ============================================================ */
+
+[class^="numberBadge_"],
+[class*=" numberBadge_"] {
+    background: var(--w98-red) !important;
+    color: white !important;
+    border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   37. STATUS INDICATORS
+   ============================================================ */
+
+[class^="status_"],
+[class*=" status_"] {
+    border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   38. REDUCE MODERN ROUNDED ELEMENTS
+   ============================================================ */
+
+[class^="iconBadge_"],
+[class*=" iconBadge_"],
+[class^="badge_"],
+[class*=" badge_"] {
+    border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   39. WINDOWS 98 ERROR / ALERT STYLE
+   ============================================================ */
+
+[class^="error_"],
+[class*=" error_"] {
+    border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   40. ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ============================================================
+   FORCE WINDOWS 98 MAIN SURFACES
+   ============================================================ */
+
+#app-mount,
+#app-mount .appMount,
+#app-mount .app,
+#app-mount [class^="app_"],
+#app-mount [class*=" app_"] {
+    background: var(--w98-teal) !important;
+}
+
+
+/* ============================================================
+   MAIN CONTENT AREA
+   ============================================================ */
+
+#app-mount main,
+#app-mount [role="main"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/* ============================================================
+   CHAT
+   ============================================================ */
+
+#app-mount [class^="chat_"],
+#app-mount [class*=" chat_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/* Chat content */
+
+#app-mount [class^="chatContent_"],
+#app-mount [class*=" chatContent_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/* Message list */
+
+#app-mount [class^="messagesWrapper_"],
+#app-mount [class*=" messagesWrapper_"] {
+    background: var(--w98-gray) !important;
+}
+
+
+/* Actual scrolling area */
+
+#app-mount [class^="scroller_"],
+#app-mount [class*=" scroller_"] {
+    background: transparent !important;
+}
+
+/* ============================================================
+   HOME TABS
+   ============================================================ */
+
+#app-mount [role="tab"] {
+    font-family: var(--w98-font) !important;
+
+    background: var(--w98-gray) !important;
+    color: #000000 !important;
+
+    border-top:
+        2px solid var(--w98-light) !important;
+
+    border-left:
+        2px solid var(--w98-light) !important;
+
+    border-right:
+        2px solid var(--w98-shadow) !important;
+
+    border-bottom:
+        2px solid var(--w98-shadow) !important;
+
+    padding: 3px 10px !important;
+
+    min-height: 22px !important;
+}
+
+
+/* Selected tab */
+
+#app-mount [role="tab"][aria-selected="true"] {
+    background: var(--w98-blue) !important;
+    color: white !important;
+
+    border-top:
+        2px solid var(--w98-shadow) !important;
+
+    border-left:
+        2px solid var(--w98-shadow) !important;
+
+    border-right:
+        2px solid var(--w98-light) !important;
+
+    border-bottom:
+        2px solid var(--w98-light) !important;
+}
+
+
+/* Add Friend */
+
+#app-mount [role="tab"][class*="add"] {
+    background: var(--w98-gray) !important;
+    color: #000000 !important;
+}
+
+/* ============================================================
+   SEARCH BOX
+   ============================================================ */
+
+#app-mount input[type="text"],
+#app-mount input[type="search"] {
+    background: #ffffff !important;
+
+    color: #000000 !important;
+
+    font-family: var(--w98-font) !important;
+
+    border-top:
+        2px solid var(--w98-shadow) !important;
+
+    border-left:
+        2px solid var(--w98-shadow) !important;
+
+    border-right:
+        2px solid var(--w98-light) !important;
+
+    border-bottom:
+        2px solid var(--w98-light) !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+#app-mount input::placeholder {
+    color: #808080 !important;
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+
+#app-mount [class^="sectionTitle_"],
+#app-mount [class*=" sectionTitle_"],
+#app-mount [class^="title_"] {
+    font-family: var(--w98-font) !important;
+}
+
+/* ============================================================
+   WINDOWS 98 DIVIDERS
+   ============================================================ */
+
+#app-mount hr {
+    border: 0 !important;
+
+    border-top:
+        1px solid var(--w98-shadow) !important;
+
+    border-bottom:
+        1px solid var(--w98-light) !important;
+
+    height: 2px !important;
+
+    background: transparent !important;
+}
+
+/* ============================================================
+   USER LIST
+   ============================================================ */
+
+#app-mount [class^="peopleListItem_"],
+#app-mount [class*=" peopleListItem_"] {
+    background: transparent !important;
+
+    border-bottom:
+        1px solid var(--w98-shadow) !important;
+}
+
+
+#app-mount [class^="peopleListItem_"]:hover,
+#app-mount [class*=" peopleListItem_"]:hover {
+    background: var(--w98-light-gray) !important;
+}
+
 
 /* Username */
 
-[class*="username"] {
-color: var(--win98-blue) !important;
+#app-mount [class^="username_"],
+#app-mount [class*=" username_"] {
+    color: var(--w98-blue) !important;
 }
 
-/* =========================================================
-MESSAGE INPUT
-========================================================= */
 
-[class*="channelTextArea"] {
-background: var(--win98-gray) !important;
+/* Activity */
 
-```
-border-top:
-    2px solid var(--win98-shadow) !important;
-
-border-left:
-    2px solid var(--win98-shadow) !important;
-
-border-right:
-    2px solid var(--win98-light) !important;
-
-border-bottom:
-    2px solid var(--win98-light) !important;
-```
-
+#app-mount [class^="activity_"],
+#app-mount [class*=" activity_"] {
+    color: #404040 !important;
 }
 
-[class*="textArea"] {
-background: white !important;
-color: black !important;
+/* ============================================================
+   USER PANEL / TASKBAR
+   ============================================================ */
+
+#app-mount [class^="panels_"],
+#app-mount [class*=" panels_"] {
+    background: var(--w98-gray) !important;
+
+    border-top:
+        2px solid var(--w98-light) !important;
+
+    border-left:
+        2px solid var(--w98-light) !important;
+
+    border-right:
+        2px solid var(--w98-shadow) !important;
 }
 
-/* =========================================================
-BUTTONS
-========================================================= */
 
-button {
-font-family:
-"MS Sans Serif",
-"Microsoft Sans Serif",
-Tahoma,
-sans-serif !important;
+/* User name */
 
-```
-background: var(--win98-gray) !important;
-color: black !important;
-
-border-top:
-    2px solid var(--win98-light) !important;
-
-border-left:
-    2px solid var(--win98-light) !important;
-
-border-right:
-    2px solid var(--win98-shadow) !important;
-
-border-bottom:
-    2px solid var(--win98-shadow) !important;
-
-padding: 2px 8px !important;
-```
-
+#app-mount [class^="panelTitle_"],
+#app-mount [class*=" panelTitle_"] {
+    color: #000000 !important;
 }
 
-button:active {
-border-top:
-2px solid var(--win98-shadow) !important;
+/* ============================================================
+   NO MODERN DISCORD EFFECTS
+   ============================================================ */
 
-```
-border-left:
-    2px solid var(--win98-shadow) !important;
-
-border-right:
-    2px solid var(--win98-light) !important;
-
-border-bottom:
-    2px solid var(--win98-light) !important;
-```
-
+#app-mount * {
+    backdrop-filter: none !important;
 }
 
-/* =========================================================
-SERVER LIST
-========================================================= */
 
-[class*="guilds"] {
-background: var(--win98-teal) !important;
-}
+/* Remove modern translucent backgrounds */
 
-[class*="listItem"] {
-background: transparent !important;
-}
-
-/* Server icons */
-
-[class*="guildIcon"] {
-border-radius: 0 !important;
-}
-
-/* =========================================================
-MEMBER LIST
-========================================================= */
-
-[class*="membersWrap"] {
-background: var(--win98-gray) !important;
-}
-
-[class*="members"] {
-background: var(--win98-gray) !important;
-}
-
-[class*="member"] {
-color: black !important;
-}
-
-[class*="member"]:hover {
-background: var(--win98-mid) !important;
-}
-
-/* =========================================================
-POPOVERS / MENUS
-========================================================= */
-
-[class*="menu"],
-[class*="popout"],
-[class*="layer"] [class*="container"] {
-background: var(--win98-gray) !important;
-
-```
-border-top:
-    2px solid var(--win98-light) !important;
-
-border-left:
-    2px solid var(--win98-light) !important;
-
-border-right:
-    2px solid var(--win98-shadow) !important;
-
-border-bottom:
-    2px solid var(--win98-shadow) !important;
-```
-
-}
-
-/* =========================================================
-SELECTED MENU ITEM
-========================================================= */
-
-[class*="item"]:hover {
-background: var(--win98-blue) !important;
-color: white !important;
-}
-
-/* =========================================================
-SCROLLBARS
-========================================================= */
-
-::-webkit-scrollbar {
-width: 16px !important;
-height: 16px !important;
-}
-
-::-webkit-scrollbar-track {
-background: var(--win98-gray) !important;
-}
-
-::-webkit-scrollbar-thumb {
-background: var(--win98-gray) !important;
-
-```
-border-top:
-    2px solid var(--win98-light);
-
-border-left:
-    2px solid var(--win98-light);
-
-border-right:
-    2px solid var(--win98-shadow);
-
-border-bottom:
-    2px solid var(--win98-shadow);
-```
-
-}
-
-::-webkit-scrollbar-button {
-background: var(--win98-gray) !important;
-}
-
-/* =========================================================
-REMOVE MODERN DISCORD FEEL
-========================================================= */
-
-[class*="avatar"] {
-border-radius: 0 !important;
-}
-
-[class*="wrapper"] {
-border-radius: 0 !important;
-}
-
-[class*="icon"] {
-border-radius: 0 !important;
-}
-
-/* =========================================================
-LINKS
-========================================================= */
-
-a {
-color: #000080 !important;
-text-decoration: underline !important;
-}
-
-/* =========================================================
-CODE BLOCKS
-========================================================= */
-
-code,
-[class*="codeBlock"] {
-background: #ffffff !important;
-color: #000000 !important;
-
-```
-border:
-    2px inset var(--win98-gray) !important;
-
-font-family:
-    "Courier New",
-    monospace !important;
-```
-
+#app-mount [class*="overlay"],
+#app-mount [class*="floating"] {
+    backdrop-filter: none !important;
 }
