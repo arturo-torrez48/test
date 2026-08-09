@@ -1,0 +1,422 @@
+/**
+
+* @name Windows 98 Discord
+* @author Arthur
+* @description Discord redesigned as a Windows 98 application.
+* @version 0.1.0
+  */
+
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500&display=swap");
+
+/* =========================================================
+WINDOWS 98 PALETTE
+========================================================= */
+
+:root {
+--win98-gray: #c0c0c0;
+--win98-light: #ffffff;
+--win98-mid: #dfdfdf;
+--win98-shadow: #808080;
+--win98-dark: #000000;
+
+```
+--win98-blue: #000080;
+--win98-blue-active: #0000aa;
+
+--win98-teal: #008080;
+
+--win98-text: #000000;
+--win98-disabled: #808080;
+
+--win98-white: #ffffff;
+```
+
+}
+
+/* =========================================================
+GLOBAL
+========================================================= */
+
+* {
+  border-radius: 0 !important;
+  box-shadow: none;
+  }
+
+body {
+font-family:
+"MS Sans Serif",
+"Microsoft Sans Serif",
+Tahoma,
+Arial,
+sans-serif !important;
+
+```
+background: var(--win98-teal) !important;
+color: var(--win98-text) !important;
+```
+
+}
+
+/* =========================================================
+DISCORD APP
+========================================================= */
+
+.appMount__51fd7,
+.app__160d8 {
+background: var(--win98-teal) !important;
+}
+
+/* Main Discord surface */
+
+.bg__960e4 {
+background: var(--win98-gray) !important;
+}
+
+/* =========================================================
+WINDOWS 98 RAISED SURFACE
+========================================================= */
+
+[class*="container"],
+[class*="sidebar"],
+[class*="content"],
+[class*="chat"] {
+scrollbar-color:
+var(--win98-gray)
+var(--win98-gray) !important;
+}
+
+/* =========================================================
+CHANNEL SIDEBAR
+========================================================= */
+
+[class*="sidebar"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+/* =========================================================
+CHANNEL LIST
+========================================================= */
+
+[class*="containerDefault"] {
+color: var(--win98-text) !important;
+}
+
+[class*="containerDefault"]:hover {
+background: var(--win98-mid) !important;
+}
+
+[class*="modeSelected"] {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* Channel text */
+
+[class*="name__"] {
+color: var(--win98-text) !important;
+}
+
+[class*="modeSelected"] [class*="name__"] {
+color: white !important;
+}
+
+/* =========================================================
+TOP BAR / TITLE BAR
+========================================================= */
+
+[class*="titleBar"] {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* =========================================================
+CHAT HEADER
+========================================================= */
+
+[class*="themed"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+/* =========================================================
+MESSAGE AREA
+========================================================= */
+
+[class*="chatContent"] {
+background: var(--win98-gray) !important;
+}
+
+[class*="messagesWrapper"] {
+background: var(--win98-gray) !important;
+}
+
+/* =========================================================
+MESSAGES
+========================================================= */
+
+[class*="message"] {
+color: var(--win98-text) !important;
+}
+
+[class*="message"]:hover {
+background: var(--win98-mid) !important;
+}
+
+/* Username */
+
+[class*="username"] {
+color: var(--win98-blue) !important;
+}
+
+/* =========================================================
+MESSAGE INPUT
+========================================================= */
+
+[class*="channelTextArea"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-shadow) !important;
+
+border-left:
+    2px solid var(--win98-shadow) !important;
+
+border-right:
+    2px solid var(--win98-light) !important;
+
+border-bottom:
+    2px solid var(--win98-light) !important;
+```
+
+}
+
+[class*="textArea"] {
+background: white !important;
+color: black !important;
+}
+
+/* =========================================================
+BUTTONS
+========================================================= */
+
+button {
+font-family:
+"MS Sans Serif",
+"Microsoft Sans Serif",
+Tahoma,
+sans-serif !important;
+
+```
+background: var(--win98-gray) !important;
+color: black !important;
+
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+
+padding: 2px 8px !important;
+```
+
+}
+
+button:active {
+border-top:
+2px solid var(--win98-shadow) !important;
+
+```
+border-left:
+    2px solid var(--win98-shadow) !important;
+
+border-right:
+    2px solid var(--win98-light) !important;
+
+border-bottom:
+    2px solid var(--win98-light) !important;
+```
+
+}
+
+/* =========================================================
+SERVER LIST
+========================================================= */
+
+[class*="guilds"] {
+background: var(--win98-teal) !important;
+}
+
+[class*="listItem"] {
+background: transparent !important;
+}
+
+/* Server icons */
+
+[class*="guildIcon"] {
+border-radius: 0 !important;
+}
+
+/* =========================================================
+MEMBER LIST
+========================================================= */
+
+[class*="membersWrap"] {
+background: var(--win98-gray) !important;
+}
+
+[class*="members"] {
+background: var(--win98-gray) !important;
+}
+
+[class*="member"] {
+color: black !important;
+}
+
+[class*="member"]:hover {
+background: var(--win98-mid) !important;
+}
+
+/* =========================================================
+POPOVERS / MENUS
+========================================================= */
+
+[class*="menu"],
+[class*="popout"],
+[class*="layer"] [class*="container"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+/* =========================================================
+SELECTED MENU ITEM
+========================================================= */
+
+[class*="item"]:hover {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* =========================================================
+SCROLLBARS
+========================================================= */
+
+::-webkit-scrollbar {
+width: 16px !important;
+height: 16px !important;
+}
+
+::-webkit-scrollbar-track {
+background: var(--win98-gray) !important;
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light);
+
+border-left:
+    2px solid var(--win98-light);
+
+border-right:
+    2px solid var(--win98-shadow);
+
+border-bottom:
+    2px solid var(--win98-shadow);
+```
+
+}
+
+::-webkit-scrollbar-button {
+background: var(--win98-gray) !important;
+}
+
+/* =========================================================
+REMOVE MODERN DISCORD FEEL
+========================================================= */
+
+[class*="avatar"] {
+border-radius: 0 !important;
+}
+
+[class*="wrapper"] {
+border-radius: 0 !important;
+}
+
+[class*="icon"] {
+border-radius: 0 !important;
+}
+
+/* =========================================================
+LINKS
+========================================================= */
+
+a {
+color: #000080 !important;
+text-decoration: underline !important;
+}
+
+/* =========================================================
+CODE BLOCKS
+========================================================= */
+
+code,
+[class*="codeBlock"] {
+background: #ffffff !important;
+color: #000000 !important;
+
+```
+border:
+    2px inset var(--win98-gray) !important;
+
+font-family:
+    "Courier New",
+    monospace !important;
+```
+
+}
