@@ -1,0 +1,628 @@
+/**
+
+* @name Windows 98
+* @author Arturo
+* @description Windows 98 inspired theme for Discord — V1
+* @version 1.0.0
+  */
+
+/* =========================================================
+WINDOWS 98 — CORE
+========================================================= */
+
+:root {
+--win98-gray: #c0c0c0;
+--win98-light: #ffffff;
+--win98-highlight: #dfdfdf;
+--win98-shadow: #808080;
+--win98-dark: #000000;
+
+```
+--win98-blue: #000080;
+--win98-blue-light: #1084d0;
+
+--win98-white: #ffffff;
+--win98-text: #000000;
+
+--win98-green: #008000;
+--win98-red: #800000;
+
+--win98-font:
+    "MS Sans Serif",
+    "Microsoft Sans Serif",
+    Tahoma,
+    Arial,
+    sans-serif;
+```
+
+}
+
+/* =========================================================
+GLOBAL
+========================================================= */
+
+* {
+  font-family: var(--win98-font) !important;
+  border-radius: 0 !important;
+  }
+
+body,
+html {
+background: var(--win98-gray) !important;
+color: var(--win98-text) !important;
+}
+
+/* Remove modern Discord blur */
+[class*="backdrop"],
+[class*="withLayer"],
+[class*="backdrop_"] {
+backdrop-filter: none !important;
+}
+
+/* =========================================================
+DISCORD MAIN BACKGROUND
+========================================================= */
+
+[class*="appMount"] {
+background: var(--win98-gray) !important;
+}
+
+[class*="bg"] {
+background: var(--win98-gray) !important;
+}
+
+[class*="chat"] {
+background: var(--win98-gray) !important;
+}
+
+/* =========================================================
+WINDOWS 98 3D EFFECTS
+========================================================= */
+
+.win98-raised {
+border-top: 2px solid var(--win98-light) !important;
+border-left: 2px solid var(--win98-light) !important;
+border-right: 2px solid var(--win98-shadow) !important;
+border-bottom: 2px solid var(--win98-shadow) !important;
+}
+
+.win98-sunken {
+border-top: 2px solid var(--win98-shadow) !important;
+border-left: 2px solid var(--win98-shadow) !important;
+border-right: 2px solid var(--win98-light) !important;
+border-bottom: 2px solid var(--win98-light) !important;
+}
+
+/* =========================================================
+SERVER SIDEBAR
+========================================================= */
+
+[class*="guilds"] {
+background: var(--win98-gray) !important;
+
+```
+border-right:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+[class*="guilds"] [class*="scroller"] {
+background: var(--win98-gray) !important;
+}
+
+/* Server icons */
+
+[class*="guilds"] [class*="wrapper"] {
+border-radius: 0 !important;
+}
+
+[class*="guilds"] [class*="blobContainer"] {
+border-radius: 0 !important;
+}
+
+/* Selected server */
+
+[class*="guilds"] [class*="selected"] [class*="childWrapper"],
+[class*="guilds"] [class*="selected"] {
+background: var(--win98-blue) !important;
+}
+
+/* Server hover */
+
+[class*="guilds"] [class*="listItem"]:hover {
+background: var(--win98-highlight) !important;
+}
+
+/* =========================================================
+CHANNEL SIDEBAR
+========================================================= */
+
+[class*="sidebar"] {
+background: var(--win98-gray) !important;
+
+```
+border-right:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+/* Server/channel header */
+
+[class*="header"] {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* Header text */
+
+[class*="header"] * {
+color: white !important;
+}
+
+/* Channel list */
+
+[class*="containerDefault"],
+[class*="containerDragBefore"],
+[class*="containerDragAfter"] {
+background: transparent !important;
+}
+
+/* Channel names */
+
+[class*="name"] {
+color: #000000 !important;
+}
+
+/* Channel hover */
+
+[class*="wrapperCommon"] {
+border: 1px solid transparent !important;
+}
+
+[class*="wrapperCommon"]:hover {
+background: var(--win98-blue) !important;
+}
+
+[class*="wrapperCommon"]:hover * {
+color: white !important;
+}
+
+/* Selected channel */
+
+[class*="modeSelected"] {
+background: var(--win98-blue) !important;
+}
+
+[class*="modeSelected"] * {
+color: white !important;
+}
+
+/* =========================================================
+CATEGORY HEADERS
+========================================================= */
+
+[class*="containerDefault"] [class*="mainContent"] {
+color: #000000 !important;
+}
+
+[class*="containerDefault"] [class*="mainContent"]:hover {
+color: var(--win98-blue) !important;
+}
+
+/* =========================================================
+CHAT HEADER
+========================================================= */
+
+[class*="title"] {
+background: var(--win98-gray) !important;
+color: #000000 !important;
+}
+
+[class*="title"] [class*="children"] {
+color: #000000 !important;
+}
+
+/* =========================================================
+MESSAGE AREA
+========================================================= */
+
+[class*="messagesWrapper"] {
+background: var(--win98-gray) !important;
+}
+
+[class*="scroller"] {
+background: var(--win98-gray) !important;
+}
+
+/* Messages */
+
+[class*="message"] {
+background: transparent !important;
+border-radius: 0 !important;
+}
+
+/* Message hover */
+
+[class*="message"]:hover {
+background: var(--win98-highlight) !important;
+}
+
+/* Username */
+
+[class*="username"] {
+color: var(--win98-blue) !important;
+font-weight: bold !important;
+}
+
+/* Message text */
+
+[class*="messageContent"] {
+color: #000000 !important;
+}
+
+/* Timestamp */
+
+[class*="timestamp"] {
+color: #404040 !important;
+}
+
+/* =========================================================
+CHAT INPUT
+========================================================= */
+
+[class*="channelTextArea"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-shadow) !important;
+
+border-left:
+    2px solid var(--win98-shadow) !important;
+
+border-right:
+    2px solid var(--win98-light) !important;
+
+border-bottom:
+    2px solid var(--win98-light) !important;
+```
+
+}
+
+[class*="scrollableContainer"] {
+background: #ffffff !important;
+
+```
+border:
+    1px solid #000000 !important;
+```
+
+}
+
+/* Input text */
+
+[class*="textArea"] {
+color: #000000 !important;
+}
+
+/* =========================================================
+BUTTONS
+========================================================= */
+
+button {
+background: var(--win98-gray) !important;
+color: #000000 !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+
+box-shadow: none !important;
+```
+
+}
+
+/* Button press */
+
+button:active {
+border-top:
+2px solid var(--win98-shadow) !important;
+
+```
+border-left:
+    2px solid var(--win98-shadow) !important;
+
+border-right:
+    2px solid var(--win98-light) !important;
+
+border-bottom:
+    2px solid var(--win98-light) !important;
+```
+
+}
+
+/* Button hover */
+
+button:hover {
+background: var(--win98-highlight) !important;
+}
+
+/* =========================================================
+RIGHT MEMBER LIST
+========================================================= */
+
+[class*="membersWrap"] {
+background: var(--win98-gray) !important;
+
+```
+border-left:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+[class*="members"] {
+background: var(--win98-gray) !important;
+}
+
+/* Member hover */
+
+[class*="member"] {
+border-radius: 0 !important;
+}
+
+[class*="member"]:hover {
+background: var(--win98-blue) !important;
+}
+
+[class*="member"]:hover * {
+color: white !important;
+}
+
+/* =========================================================
+SCROLLBARS
+========================================================= */
+
+::-webkit-scrollbar {
+width: 16px !important;
+height: 16px !important;
+}
+
+::-webkit-scrollbar-track {
+background: var(--win98-gray) !important;
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+```
+
+}
+
+::-webkit-scrollbar-button {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+
+height: 16px !important;
+```
+
+}
+
+/* =========================================================
+CONTEXT MENUS
+========================================================= */
+
+[class*="menu"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+
+box-shadow: 2px 2px #000000 !important;
+```
+
+}
+
+[class*="menuItem"] {
+color: #000000 !important;
+}
+
+[class*="menuItem"]:hover {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* =========================================================
+TOOLTIPS
+========================================================= */
+
+[class*="tooltip"] {
+background: #ffffe1 !important;
+color: #000000 !important;
+
+```
+border:
+    1px solid #000000 !important;
+
+box-shadow:
+    2px 2px 0 #000000 !important;
+```
+
+}
+
+/* =========================================================
+MODALS
+========================================================= */
+
+[class*="modal"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+
+border-left:
+    2px solid var(--win98-light) !important;
+
+border-right:
+    2px solid var(--win98-shadow) !important;
+
+border-bottom:
+    2px solid var(--win98-shadow) !important;
+
+box-shadow:
+    3px 3px 0 #000000 !important;
+```
+
+}
+
+/* Modal titles */
+
+[class*="modal"] [class*="header"] {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* =========================================================
+SEARCH
+========================================================= */
+
+[class*="search"] {
+background: var(--win98-gray) !important;
+}
+
+input {
+background: white !important;
+color: black !important;
+
+```
+border-top:
+    2px solid var(--win98-shadow) !important;
+
+border-left:
+    2px solid var(--win98-shadow) !important;
+
+border-right:
+    2px solid var(--win98-light) !important;
+
+border-bottom:
+    2px solid var(--win98-light) !important;
+```
+
+}
+
+/* =========================================================
+USER PANEL
+========================================================= */
+
+[class*="panels"] {
+background: var(--win98-gray) !important;
+
+```
+border-top:
+    2px solid var(--win98-light) !important;
+```
+
+}
+
+[class*="container"] {
+border-radius: 0 !important;
+}
+
+/* =========================================================
+VOICE PANEL
+========================================================= */
+
+[class*="rtcConnectionStatus"] {
+background: var(--win98-gray) !important;
+color: #000000 !important;
+}
+
+/* =========================================================
+EMOJIS / REACTIONS
+========================================================= */
+
+[class*="reaction"] {
+background: var(--win98-gray) !important;
+
+```
+border:
+    1px solid var(--win98-shadow) !important;
+```
+
+}
+
+[class*="reaction"]:hover {
+background: var(--win98-blue) !important;
+color: white !important;
+}
+
+/* =========================================================
+REMOVE MODERN DISCORD VISUALS
+========================================================= */
+
+[class*="pill"] {
+border-radius: 0 !important;
+}
+
+[class*="avatar"] {
+border-radius: 0 !important;
+}
+
+[class*="icon"] {
+filter: none !important;
+}
+
+/* =========================================================
+SELECTION
+========================================================= */
+
+::selection {
+background: var(--win98-blue) !important;
+color: white !important;
+}
